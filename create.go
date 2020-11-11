@@ -26,7 +26,7 @@ func (s *CassandraUniqueStore) Create(id string, data []byte) (duplicateId *stri
 		var ok bool
 		var duplicateObjId string
 		if duplicateObjId, ok = row["obj_id"].(string); !ok {
-			return nil, fmt.Errorf("Failed to cast 2rd arg to string : %v", row)
+			return nil, fmt.Errorf("Failed to cast obj_id arg to string : %v", row)
 		}
 		return &duplicateObjId, ErrDuplicateObject
 	}
