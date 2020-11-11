@@ -16,8 +16,12 @@ type UniqueStore interface {
 	Create(id string, data []byte) (duplicateId *string, err error)
 	// Get returns the object data
 	// In case the object is not found - then err = `ErrNotFound` and the data will be `nil`
-	Get(id) (data []byte, err error)
+	Get(id string) (data []byte, err error)
 	// CreateSchema creates the tables if they do not exist in the default cluster keyspace
 	// If `force` flag is set to true, then the table will be first droped if it exists
 	CreateSchema(force bool) error
+	// Delete removes the data from the db
+	// In case the object is not found - then err = `ErrNotFound` and the data will be `nil`
+	// In any other case the original error will be propagated
+	Delete(id string) (err error)
 }
