@@ -8,7 +8,7 @@ import (
 
 const insertChecksumCQL = `INSERT INTO cus_checksum (checksum, obj_id) VALUES (?,?) IF NOT EXISTS`
 
-const insertDataCQL = `INSERT INTO cus_data (obj_id, checksum, data) VALUES (?,?,?) IF NOT EXISTS`
+const insertDataCQL = `INSERT INTO cus_data (obj_id, checksum, data) VALUES (?,?,?)`
 
 func (s *CassandraUniqueStore) Create(id string, data []byte) (duplicateId *string, err error) {
 	// Create checksum
