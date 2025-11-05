@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/gocql/gocql"
-	"github.com/ory/dockertest"
+	"github.com/ory/dockertest/v3"
 )
 
 var store UniqueStore
